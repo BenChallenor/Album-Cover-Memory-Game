@@ -58,7 +58,13 @@ grid.setAttribute("class", "grid");
 // adds the grid section to the game div to the DOM
 game.appendChild(grid);
 
-cardsArray.forEach(item => {
+// duplicates card array
+let gameGrid = cardsArray.concat(cardsArray);
+console.log(gameGrid);
+
+// cardsArray.forEach(item => {
+// gameGrid(with duplicate array) replaces cardsArray
+gameGrid.forEach(item => {
   // create a div
   const card = document.createElement("div");
   // apply a card class to that div
@@ -68,5 +74,6 @@ cardsArray.forEach(item => {
   // applies the bacground image of the div to the cardsArray
   card.style.backgroundImage = `url(${item.img})`;
   // adds the div to the grid section
+  // <div class="card" data-name="symbol" style="background-image: url("images/symbol.jpg");"></div>
   grid.appendChild(card);
 });
