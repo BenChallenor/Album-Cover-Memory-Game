@@ -51,6 +51,7 @@ const cardsArray = [{
 // grabs the game root id
 const game = document.getElementById('game');
 
+
 // creates a section with a grid class
 const grid = document.createElement('section');
 grid.setAttribute("class", "grid");
@@ -61,6 +62,9 @@ game.appendChild(grid);
 // duplicates card array
 let gameGrid = cardsArray.concat(cardsArray);
 console.log(gameGrid);
+
+// Randomize game grid on each load
+gameGrid.sort(() => 0.5 - Math.random());
 
 // cardsArray.forEach(item => {
 // gameGrid(with duplicate array) replaces cardsArray
@@ -76,4 +80,5 @@ gameGrid.forEach(item => {
   // adds the div to the grid section
   // <div class="card" data-name="symbol" style="background-image: url("images/symbol.jpg");"></div>
   grid.appendChild(card);
+
 });
