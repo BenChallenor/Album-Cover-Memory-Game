@@ -51,10 +51,11 @@ const cardsArray = [{
 // grabs the game root id
 const game = document.getElementById('game');
 
-
 // creates a section with a grid class
 const grid = document.createElement('section');
 grid.setAttribute("class", "grid");
+
+let count = 0;
 
 // adds the grid section to the game div to the DOM
 game.appendChild(grid);
@@ -89,5 +90,9 @@ grid.addEventListener('click', function (event) {
   // Do not allow the grid section itself to be selected; only select divs inside the grid
   if (clicked.nodeName === 'SECTION') {return;}
   // add selected class
-  clicked.classList.add('selected');
+  if (count < 2) {
+    count ++;
+    // add selected class
+    clicked.classList.add('selected');
+  }
 });
