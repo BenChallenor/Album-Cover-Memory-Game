@@ -80,5 +80,14 @@ gameGrid.forEach(item => {
   // adds the div to the grid section
   // <div class="card" data-name="symbol" style="background-image: url("images/symbol.jpg");"></div>
   grid.appendChild(card);
+});
 
+// add event listener to grid
+grid.addEventListener('click', function (event) {
+  // the event target is the clicked item
+  let clicked = event.target;
+  // Do not allow the grid section itself to be selected; only select divs inside the grid
+  if (clicked.nodeName === 'SECTION') {return;}
+  // add selected class
+  clicked.classList.add('selected');
 });
