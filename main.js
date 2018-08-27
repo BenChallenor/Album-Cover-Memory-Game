@@ -58,6 +58,7 @@ grid.setAttribute("class", "grid");
 let count = 0;
 let firstGuess = '';
 let secondGuess = '';
+let previousTarget = null;
 
 // adds the grid section to the game div to the DOM
 game.appendChild(grid);
@@ -89,8 +90,9 @@ gameGrid.forEach(item => {
 grid.addEventListener('click', function(event) {
   // the event target is the clicked item
   let clicked = event.target;
-  // Do not allow the grid section itself to be selected; only select divs inside the grid
-  if (clicked.nodeName === 'SECTION') {
+  // Do not allow the grid section itself to be selected; only select divs inside.
+  // The second click on the same card will be ignored the grid
+  if (clicked.nodeName === 'SECTION' || clicked === previousTarget) {
     return;
   }
   // add selected class
@@ -101,10 +103,13 @@ grid.addEventListener('click', function(event) {
       firstGuess = clicked.dataset.name;
       // add selected class
       clicked.classList.add('selected');
+
     } else {
       // Assign secound guess
       secondGuess = clicked.dataset.name;
       clicked.classList.add('selected');
+      console.log(firstGuess);
+      console.log(secondGuess);
     }
     // if both guesses are not empty -->
     if (firstGuess !== '' && secondGuess !== '') {
@@ -114,6 +119,8 @@ grid.addEventListener('click', function(event) {
         match();
       }
     }
+    // set previous target to clicked
+    previousTarget = clicked;
   }
 });
 
