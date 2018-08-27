@@ -56,6 +56,8 @@ const grid = document.createElement('section');
 grid.setAttribute("class", "grid");
 
 let count = 0;
+let firstGuess = '';
+let secondGuess = '';
 
 // adds the grid section to the game div to the DOM
 game.appendChild(grid);
@@ -84,15 +86,42 @@ gameGrid.forEach(item => {
 });
 
 // add event listener to grid
-grid.addEventListener('click', function (event) {
+grid.addEventListener('click', function(event) {
   // the event target is the clicked item
   let clicked = event.target;
   // Do not allow the grid section itself to be selected; only select divs inside the grid
-  if (clicked.nodeName === 'SECTION') {return;}
+  if (clicked.nodeName === 'SECTION') {
+    return;
+  }
   // add selected class
   if (count < 2) {
-    count ++;
-    // add selected class
-    clicked.classList.add('selected');
+    count++;
+    if (count === 1) {
+      // Assign first guess
+      firstGuess = clicked.dataset.name;
+      // add selected class
+      clicked.classList.add('selected');
+    } else {
+      // Assign secound guess
+      secondGuess = clicked.dataset.name;
+      clicked.classList.add('selected');
+    }
+    // if both guesses are not empty -->
+    if (firstGuess !== '' && secondGuess !== '') {
+      // and the first guess matches the second -->
+      if (firstGuess === secondGuess) {
+        // run the match function
+        match();
+      }
+    }
   }
 });
+
+// Add match CSS
+const match = () => {
+  var selected = document.querySelectorAll('.selected');
+  selected.forEach(card => {
+    card.classList.add('match');
+    // add match class to all cards selected
+  });
+}

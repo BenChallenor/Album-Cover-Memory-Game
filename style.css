@@ -28,6 +28,11 @@ background: #7e1e91
   border: 4px solid black;
 }
 
+.match {
+  border: 4px solid #fa5ae0;
+  background-image: none !important;
+}
+
 
 /* MEDIA QUERIES */
 
