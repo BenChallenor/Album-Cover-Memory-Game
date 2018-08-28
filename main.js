@@ -59,6 +59,7 @@ let count = 0;
 let firstGuess = '';
 let secondGuess = '';
 let previousTarget = null;
+let delay = 1200;
 
 // adds the grid section to the game div to the DOM
 game.appendChild(grid);
@@ -116,10 +117,10 @@ grid.addEventListener('click', function(event) {
       // and the first guess matches the second -->
       if (firstGuess === secondGuess) {
         // run the match function
-        match();
-        resetGuesses();
+        setTimeout(match, delay);
+        setTimeout(resetGuesses, delay);
       } else {
-        resetGuesses();
+        setTimeout(resetGuesses, delay);
       }
     }
     // set previous target to clicked
