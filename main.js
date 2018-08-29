@@ -48,6 +48,10 @@ const cardsArray = [{
   },
 ];
 
+function refreshPage() {
+  window.location.reload();
+}
+
 // duplicates card array
 let gameGrid = cardsArray.concat(cardsArray);
 
@@ -165,4 +169,6 @@ grid.addEventListener('click', function(event) {
     // set previous target to clicked
     previousTarget = clicked;
   }
+
+
 });

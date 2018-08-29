@@ -59,7 +59,22 @@ transform: rotateY(180deg);
 } */
 
 .match .front {
-  background: #6589F9 !important;
+  background: #fa5ae0 !important;
+}
+
+#reset {
+  background: #8F2FF5;
+  color: #4E188A;
+  border-radius: 3px;
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+  display: block;
+  margin: 0 auto;
+  margin-top: 5px;
+  outline:none;
+  font-size: 15px;
+
 }
 
 
