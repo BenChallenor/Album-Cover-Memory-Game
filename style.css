@@ -9,7 +9,7 @@ background: #7e1e91
 }
 
 .grid {
-  padding-top: 10px;
+  padding-top: 20px;
   max-width: 1400px;
   margin: 0 auto;
   display: flex;
@@ -30,6 +30,7 @@ background: #7e1e91
 .back {
   height: 200px;
   width: 200px;
+  border-radius: 5px;
 }
 
 .front,
@@ -89,11 +90,21 @@ transform: rotateY(180deg);
   height: 150px;
   background-size: contain;
 }
-
-
 }
 
 /* mobiles */
+
+@media screen and (max-height: 812px) and (min-width: 375px){
+  /* .card,
+  .front,
+  .back {
+    height: 100px;
+    width: 100px;
+    background-size: contain;
+  } */
+  body {
+  background: black;
+}
 @media screen and (max-width: 480px){
   .card,
   .front,
@@ -102,5 +113,9 @@ transform: rotateY(180deg);
     width: 80px;
     background-size: contain;
   }
+  body {
+  background: white;
+  }
+}
 
 }
